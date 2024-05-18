@@ -7,6 +7,16 @@ module.exports = {
   ],
   theme: {
     extend: {
+      colors: {
+        "gold-yellow": "#FBBC04",
+        "main-blue": "#1570EF",
+        "primary-low": "#D1E9FF",
+        "light-blue": "#D1E9FF",
+        "dark-grey": "#3F3F3F",
+      },
+      fontFamily: {
+        poppins: ['var(--font-poppins)'],
+      },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":
