@@ -47,9 +47,10 @@ export default function Login() {
     return(
         <div>
         <div className='flex flex-row w-screen'>
+        {/* Rightmost gradient */}
           <div className='bg-gradient-to-r from-primary-low via-white w-1/2 to-yellow-50'>
-            <div className=' px-8 py-8 h-1/8'>
-              <img className='h-16 w-auto' src='https://themiracleproject.org/wp-content/uploads/2019/09/MiracleProject-Horizontal-LeftAligned-Color.png' />
+            <div className=' px-4 py-4 h-1/8'>
+              <img className='h-8 w-auto' src='https://themiracleproject.org/wp-content/uploads/2019/09/MiracleProject-Horizontal-LeftAligned-Color.png' />
             </div>
             <div className='flex justify-center items-center'>
               <div className='max-w-xs'>
@@ -57,23 +58,26 @@ export default function Login() {
               </div>
             </div>
           </div>
+          {/* Right side */}
           <div className='flex w-1/2 items-center bg-white text-dark-grey max-w-screen-sm min-h-max h-screen'>
             <div className='w-3/5 mx-auto flex flex-col gap-6'>
+            {/* Login Form */}
               <h1 className='text-4xl font-bold'>Login</h1>
-  
               <div className='section flex flex-col gap-5'>
-                  <form className="flex flex-col gap-4" action="#" method="POST">
+                  <form onSubmit={handleLogin} className="flex flex-col gap-4" action="#" method="POST">
+                    {/* Email input field */}
                     <div className="w-full flex flex-col gap-1">
-                      <label for="username" className="block text-sm font-medium leading-6 text-gray-900">Username</label>
-                      <input id="email" name="email" type="name" autoComplete="name" placeholder="Email" required className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-light-blue sm:text-sm sm:leading-6 px-3.5 py-2.5"/>
+                      <label htmlFor="email" className="block text-sm font-medium leading-6 text-gray-900">Email</label>
+                      <input id="email" name="email" type="text" autoComplete="email" placeholder="Email" required className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-light-blue sm:text-sm sm:leading-6 px-3.5 py-2.5" onChange={(e) => setEmail(e.target.value)}/>
                     </div>
+                    {/* Password input field */}
                     <div className="flex flex-col gap-2">
                       <div className="flex flex-col gap-1">
-                       <label for="password" class="block text-sm font-medium leading-6 text-gray-900">Password</label>
-                       <input id="password" name="password" type="password" autoComplete="current-password" placeholder="Enter Password" required className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-light-blue sm:text-sm sm:leading-6 px-3.5 py-2.5"/>
+                       <label htmlFor="password" className="block text-sm font-medium leading-6 text-gray-900">Password</label>
+                       <input id="password" name="password" type="password" autoComplete="current-password" placeholder="Enter Password" required className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-light-blue sm:text-sm sm:leading-6 px-3.5 py-2.5" onChange={(e) => setPassword(e.target.value)}/>
                       </div>
-                      <div class="text-xs">
-                       <a href="#" class="font-light text-slate-400 hover:text-slate-600 transition duration-150">Forgot password?</a>
+                      <div className="text-xs">
+                       <a href="#" className="font-light text-slate-400 hover:text-slate-600 transition duration-150">Forgot password?</a>
                       </div>
                     </div>
                     <div className="flex flex-col gap-5" id="login-btns">
@@ -91,8 +95,8 @@ export default function Login() {
                             <span>Login with Google</span>
                         </button>
                       </div>
-                      <div class="text-sm flex justify-center">
-                       <a href="#" class="font-light text-slate-400">Don't have an account? <Link className="text-main-blue" href="/signup">Sign Up</Link></a>
+                      <div className="text-sm flex justify-center">
+                       <a href="/signup" className="font-light text-slate-400">Don't have an account? <span className="text-main-blue">Sign Up</span></a>
                       </div>
                     </div>
                   </form>

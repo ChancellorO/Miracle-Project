@@ -17,6 +17,12 @@ export default function Signup() {
     const [confirmPassword, setConfirmPassword] = useState('');
     const [role, setRole] = useState(0);
 
+    //if input 0 (student) and role already 0, then nothing happens,
+    // if input 0 and role 1, change to 1
+
+    //if input 1 and role 0, change to 0
+    // if input 1 and role 1, do't do anything
+
     const handleSignUp = async (e) => {
         e.preventDefault();
 
@@ -46,6 +52,7 @@ export default function Signup() {
                 setEmail('');
                 setPassword('');
                 setConfirmPassword('');
+                setRole(0);
 
             })
             .catch((error) => {
@@ -74,33 +81,33 @@ export default function Signup() {
                 <p className='text-base'>Please identify your role</p>
                 <div className='flex flex-row gap-8 sm:gap-3' id='roles'>
                   <div>
-                    <button type="submit" className="flex w-full justify-center rounded-lg bg-white border-2 border-light-blue px-10 py-3 text-sm font-semibold transition-all ease-in-out leading-6 text-dark-grey shadow-sm hover:drop-shadow-md focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-light-blue py-3 px-10">Student</button>
+                    <button onClick={() => setRole(0)} type="submit" className="flex w-full justify-center rounded-lg bg-white border-2 border-light-blue px-10 py-3 text-sm font-semibold transition-all ease-in-out leading-6 text-dark-grey shadow-sm hover:drop-shadow-md focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-light-blue py-3 px-10">Student</button>
                   </div>
                   <div>
-                    <button type="submit" className="flex w-full justify-center rounded-lg bg-white border-2 border-light-blue px-10 py-3 text-sm font-semibold transition-all ease-in-out leading-6 text-dark-grey shadow-sm hover:drop-shadow-md focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-light-blue py-3 px-10">Teacher</button>
+                    <button onClick={() => setRole(1)} type="submit" className="flex w-full justify-center rounded-lg bg-white border-2 border-light-blue px-10 py-3 text-sm font-semibold transition-all ease-in-out leading-6 text-dark-grey shadow-sm hover:drop-shadow-md focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-light-blue py-3 px-10">Teacher</button>
                   </div>
                 </div>
               </div>
               <div className='section flex flex-col gap-5'>
                 <p className='text-base'>Enter your information</p>
                 <div className="sm:mx-auto sm:w-full gap-5">
-                  <form className="flex flex-col gap-4" action="#" method="POST">
+                  <form onSubmit={handleSignUp} className="flex flex-col gap-4" action="#" method="POST">
                     <div className="flex sm:gap-3 gap-8">
                       <div className="w-full">
-                        <input id="FName" name="name" type="name" autoComplete="name" placeholder="First Name" required className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-light-blue sm:text-sm sm:leading-6 px-3.5 py-2.5"/>
+                        <input id="FName" name="fname" type="name" autoComplete="fname" placeholder="First Name" required className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-light-blue sm:text-sm sm:leading-6 px-3.5 py-2.5" onChange={(e) => setFirstName(e.target.value)}/>
                       </div>
                       <div className="w-full">
-                        <input id="LName" name="name" type="name" autoComplete="name" placeholder="Last Name" required className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-light-blue sm:text-sm sm:leading-6 px-3.5 py-2.5"/>
+                        <input id="LName" name="lname" type="name" autoComplete="lname" placeholder="Last Name" required className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-light-blue sm:text-sm sm:leading-6 px-3.5 py-2.5" onChange={(e) => setLastName(e.target.value)}/>
                       </div>
                     </div>
                     <div className="w-full">
-                      <input id="email" name="email" type="name" autoComplete="name" placeholder="Email" required className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-light-blue sm:text-sm sm:leading-6 px-3.5 py-2.5"/>
+                      <input id="email" name="email" type="email" autoComplete="name" placeholder="Email" required className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-light-blue sm:text-sm sm:leading-6 px-3.5 py-2.5" onChange={(e) => setEmail(e.target.value)}/>
                     </div>
                     <div>
-                      <input id="password" name="password" type="password" autoComplete="current-password" placeholder="Enter Password" required className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-light-blue sm:text-sm sm:leading-6 px-3.5 py-2.5"/>
+                      <input id="password" name="password" type="password" autoComplete="password" placeholder="Enter Password" required className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-light-blue sm:text-sm sm:leading-6 px-3.5 py-2.5" onChange={(e) => setPassword(e.target.value)}/>
                     </div>
                     <div>
-                      <input id="password" name="password" type="password" autoComplete="current-password" placeholder="Confirm Password" required className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-light-blue sm:text-sm sm:leading-6 px-3.5 py-2.5"/>
+                      <input id="password" name="password" type="password" autoComplete="confirm-password" placeholder="Confirm Password" required className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-light-blue sm:text-sm sm:leading-6 px-3.5 py-2.5" onChange={(e) => setConfirmPassword(e.target.value)}/>
                     </div>
                     <div id="login-btns">
                       <div>

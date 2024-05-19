@@ -18,6 +18,7 @@ const firebaseConfig = {
   databaseURL: 'https://miracle-project-d8513-default-rtdb.firebaseio.com',
 };
 
+
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
