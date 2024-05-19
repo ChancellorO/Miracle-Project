@@ -9,7 +9,7 @@ import figure from '../assets/figure.svg';
 import Image from 'next/image';
 
 
-export default function signup() {
+export default function Signup() {
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
     const [email, setEmail] = useState('');

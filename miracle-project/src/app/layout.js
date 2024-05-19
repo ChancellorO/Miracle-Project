@@ -14,7 +14,6 @@ export default function RootLayout({ children }) {
       <html lang="en">
         <body className={`${poppins}`}>
           <main className='font-poppins'>
-            {/* <Navbar /> */}          
             {children}
           </main>
         </body>

@@ -1,4 +1,4 @@
-export default function enrolledCourses() {
+export default function EnrolledCourses() {
     return(
         <div>ENROLLED COURSES</div>
     );

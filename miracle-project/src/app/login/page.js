@@ -7,7 +7,7 @@ import Link from "next/link";
 import figure from '../assets/figure.svg';
 import Image from 'next/image';
 
-export default function login() {
+export default function Login() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
@@ -92,7 +92,7 @@ export default function login() {
                         </button>
                       </div>
                       <div class="text-sm flex justify-center">
-                       <a href="#" class="font-light text-slate-400">Don't have an account? <span className="text-main-blue">Sign Up</span></a>
+                       <a href="#" class="font-light text-slate-400">Don't have an account? <Link className="text-main-blue" href="/signup">Sign Up</Link></a>
                       </div>
                     </div>
                   </form>
