@@ -12,8 +12,7 @@ module.exports = {
         "main-blue": "#1570EF",
         "primary-low": "#D1E9FF",
         "light-blue": "#D1E9FF",
-        "dark-grey": "#3F3F3F",
-
+        "dark-grey": "#3F3F3F", 
       },
       fontFamily: {
         poppins: ['var(--font-poppins)'],
