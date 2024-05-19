@@ -1,7 +1,6 @@
 import { poppins } from './utils/fonts';
 import "./globals.css";
 import Providers from '../lib/features/provider';
-import Navbar from "./components/navigation/navbar";
 
 export const metadata = {
   title: "Create Next App",

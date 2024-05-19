@@ -1,8 +1,8 @@
 const { createSlice } = require('@reduxjs/toolkit');
 
 const initialState = {
-  firstname: '',
-  lastname: '',
+  firstName: '',
+  lastName: '',
   email: '',
   courses: [],
   role: 0,
@@ -15,17 +15,19 @@ const authSlice = createSlice({
   reducers: {
     login: (state, action) => {
       console.log('login');
-      state.id = action.payload.uid; //iterate
-      state.firstname = action.payload.firstname;
-      state.lastname = action.payload.lastname;
+      console.log(action.payload);
+      state.id = action.payload.uid;
+      state.firstName = action.payload.firstName;
+      state.lastName = action.payload.lastName;
       state.email = action.payload.email;
       state.courses = action.payload.courses;
       state.role = action.payload.role;
     },
     logout: (state) => {
       console.log('logout');
-      state.firstname = '';
-      state.lastname = '';
+      state.id = '';
+      state.firstName = '';
+      state.lastName = '';
       state.email = '';
       state.courses = [];
       state.role = 0;

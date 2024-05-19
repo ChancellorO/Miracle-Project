@@ -1,8 +1,8 @@
 'use client'
-import { db } from "../../../server/firebase";
+import { db, auth } from "../../../server/firebase";
 import { useState } from 'react';
 import { doc, setDoc } from "firebase/firestore/lite";
-import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import { createUserWithEmailAndPassword } from "firebase/auth";
 import { redirect } from 'next/navigation';
 import Link from "next/link";
 import figure from '../assets/figure.svg';
@@ -29,7 +29,6 @@ export default function Signup() {
         console.log('email: ', email);
         console.log('password: ', password);
 
-        const auth = getAuth();
         createUserWithEmailAndPassword(auth, email, password)
             .then( async (userCredential) => {
                 const user = userCredential.user;

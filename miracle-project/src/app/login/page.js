@@ -1,26 +1,20 @@
 'use client'
-import { db } from "../../../server/firebase";
+import { db, auth } from "../../../server/firebase";
 import { useState } from 'react';
 import { doc, getDoc } from "firebase/firestore/lite";
-import { getAuth, signInWithEmailAndPassword, signOut } from "firebase/auth";
+import { signInWithEmailAndPassword } from "firebase/auth";
 import Link from "next/link";
 import figure from '../assets/figure.svg';
 import Image from 'next/image';
+import { login } from "@/lib/features/auth/authSlice";
+import { useRouter } from "next/navigation";
+import { useDispatch } from "react-redux";
 
 export default function Login() {
+    const router = useRouter();
+    const dispatch = useDispatch();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-
-    const handleSignOut = async (e) => {
-        e.preventDefault();
-
-        const auth = getAuth();
-        signOut(auth).then(() => {
-            console.log('Sign-out successful.');
-          }).catch((error) => {
-            console.log(error);
-          });
-    }
         
     const handleLogin = async (e) => {
         e.preventDefault();
@@ -28,7 +22,6 @@ export default function Login() {
         console.log('email: ', email);
         console.log('password: ', password);
 
-        const auth = getAuth();
         signInWithEmailAndPassword(auth, email, password)
             .then( async (userCredential) => {
                 const user = userCredential.user;
@@ -36,7 +29,19 @@ export default function Login() {
                 console.log(user.uid);
 
                 const docRef = await getDoc(doc(db, "users", user.uid));
-                console.log(docRef.data());
+                console.log(docRef.data().firstName);
+                const data = {
+                    uid: user.uid,
+                    firstName: docRef.data().firstName,
+                    lastName: docRef.data().lastName,
+                    email: docRef.data().email,
+                    courses: docRef.data().courses,
+                    role: docRef.data().role,
+                };
+
+                dispatch(login(data));
+                router.push('/');
+
             })
             .catch((error) => {
                 const errorCode = error.code;

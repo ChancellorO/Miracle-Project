@@ -1,5 +1,10 @@
+import Navbar from "../components/navigation/navbar";
+
 export default function EnrolledCourses() {
+
     return(
-        <div>ENROLLED COURSES</div>
+        <div className="flex flex-row">
+            <Navbar />
+        </div>
     );
 }
