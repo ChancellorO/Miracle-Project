@@ -5,6 +5,7 @@ import SpaceDashboardIcon from '@mui/icons-material/SpaceDashboard';
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import NotificationsActiveIcon from '@mui/icons-material/NotificationsActive';
+import StyleIcon from '@mui/icons-material/Style';
 import SettingsIcon from '@mui/icons-material/Settings';
 import LogoutIcon from '@mui/icons-material/Logout';
 import { logout } from "@/lib/features/auth/authSlice";
@@ -50,6 +51,10 @@ export default function Navbar() {
                     <div className="flex flex-row gap-1 py-2 items-center ease-in-out hover:bg-white-gradient transition duration-150 rounded-l-lg pl-4 hover:border-l-8">
                         <CalendarMonthIcon />
                         <Link href="/calendar">Calendar</Link>                        
+                    </div>
+                    <div className="flex flex-row gap-1 py-2 items-center ease-in-out hover:bg-white-gradient transition duration-150 rounded-l-lg pl-4 hover:border-l-8">
+                        <StyleIcon />
+                        <Link href="/enrolledCourses">Courses</Link>                        
                     </div>
                     <div className="flex flex-row gap-1 py-2 items-center ease-in-out hover:bg-white-gradient transition duration-150 rounded-l-lg pl-4 hover:border-l-8">
                         <NotificationsActiveIcon />
