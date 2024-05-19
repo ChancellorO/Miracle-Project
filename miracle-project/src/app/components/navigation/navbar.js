@@ -9,7 +9,7 @@ import LogoutIcon from '@mui/icons-material/Logout';
 
 export default function Navbar() {
     return (
-        <div className="z-10 h-screen w-64 fixed flex flex-col gap-28 bg-[#0E3663] text-sm text-white">
+        <div className="z-10 h-screen w-64 flex flex-col gap-28 bg-[#0E3663] text-sm text-white">
             <Image
               src="/title.png"
               alt="Miracle Project Logo"
