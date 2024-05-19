@@ -51,7 +51,7 @@ const PostUpload = () => {
         variant="contained"
         color="primary"
         onClick={handleOpen}
-        style={{ backgroundColor: 'blue' }}
+        style={{ backgroundColor: 'black' }}
       >
         Create Post
       </Button>

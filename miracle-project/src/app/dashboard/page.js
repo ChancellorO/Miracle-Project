@@ -34,8 +34,8 @@ const Home = () => {
         // setHomework(homeworkData);
 
         setUser("Daniel");
-        setRecentAnnouncement("Ogura time! Ogura time! Ogura time!Ogura time!Ogura time!Ogura time!Ogura time!Ogura time!Ogura time!Ogura time!Ogura time! Ogura time!Ogura time!Ogura time!Ogura time!Ogura time!Ogura time!Ogura time!Ogura time!Ogura time!Ogura time!Ogura time!Ogura time!Ogura time!Ogura time!Ogura time!Ogura time!");
-        setCourses([{id: "1", name: "Math", professor: "Dr. O", location: "Zoom", date: "Wednesday", time: "5 pm"},
+        setRecentAnnouncement("I hope this message finds you well. I'm excited to announce our upcoming theater assignment, which will allow you to explore the world of performing arts and unleash your creativity. For this assignment, you will be working in groups to create and perform a short theatrical piece. The theme of your performance will be Overcoming Challenges, which can be interpreted in various ways. You can choose to create a comedic skit, a dramatic scene, or even a musical performance – the possibilities are endless! Each group will be responsible for the following tasks: Script Writing: Collaborate with your group members to write an original script that aligns with the theme. Your script should be engaging, thought-provoking, and showcase your storytelling abilities. Character Development: Develop well-rounded characters that drive the narrative forward. Consider their personalities, motivations, and how they contribute to the overall message of your performance.");
+        setCourses([{id: "1", name: "Digital Theater", professor: "Prof Richey", location: "Zoom", date: "Tuesday", time: "5 pm"},
         {id: "1", name: "English", professor: "Dr. O", location: "Zoom", date: "Wednesday", time: "5 pm"},
         {id: "1", name: "Cooking", professor: "Dr. O", location: "Zoom", date: "Wednesday", time: "5 pm"},
         {id: "1", name: "Dance", professor: "Dr. O", location: "Zoom", date: "Wednesday", time: "5 pm"}

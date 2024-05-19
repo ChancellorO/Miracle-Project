@@ -3,6 +3,7 @@ import { db, auth } from "../../../server/firebase";
 import { useState } from 'react';
 import { doc, setDoc } from "firebase/firestore/lite";
 import { createUserWithEmailAndPassword } from "firebase/auth";
+import { useRouter } from "next/router";
 import { redirect } from 'next/navigation';
 import Link from "next/link";
 import figure from '../assets/figure.svg';
@@ -52,6 +53,7 @@ export default function Signup() {
                 setPassword('');
                 setConfirmPassword('');
                 setRole(0);
+               
 
             })
             .catch((error) => {
@@ -80,10 +82,12 @@ export default function Signup() {
                 <p className='text-base'>Please identify your role</p>
                 <div className='flex flex-row gap-8 sm:gap-3' id='roles'>
                   <div>
-                    <button onClick={() => setRole(0)} type="submit" className="flex w-full justify-center rounded-lg bg-white border-2 border-light-blue px-10 py-3 text-sm font-semibold transition-all ease-in-out leading-6 text-dark-grey shadow-sm hover:drop-shadow-md focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-light-blue py-3 px-10">Student</button>
+                    <button onClick={() => setRole(0)} type="submit" className={`flex w-full justify-center rounded-lg bg-white border-2 border-light-blue px-10 py-3 text-sm font-semibold transition-all ease-in-out leading-6 text-dark-grey shadow-sm hover:drop-shadow-md focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-light-blue py-3 px-10 ${
+            role === 1 ? 'bg-white-500 text-black': 'bg-gray-300 text-gray-700'}`}>Student</button>
                   </div>
                   <div>
-                    <button onClick={() => setRole(1)} type="submit" className="flex w-full justify-center rounded-lg bg-white border-2 border-light-blue px-10 py-3 text-sm font-semibold transition-all ease-in-out leading-6 text-dark-grey shadow-sm hover:drop-shadow-md focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-light-blue py-3 px-10">Teacher</button>
+                    <button onClick={() => setRole(1)} type="submit" className={`flex w-full justify-center rounded-lg bg-white border-2 border-light-blue px-10 py-3 text-sm font-semibold transition-all ease-in-out leading-6 text-dark-grey shadow-sm hover:drop-shadow-md focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-light-blue py-3 px-10 ${
+            role === 0 ? 'bg-white-500 text-black': 'bg-gray-300 text-gray-700'}`}>Teacher</button>
                   </div>
                 </div>
               </div>
@@ -125,6 +129,7 @@ export default function Signup() {
                       </div>
                     </div>
                   </form>
+                  <a href="/login" className="font-light text-slate-400">Already have an account? <span className="text-main-blue">Log in</span></a>
                 </div>
               </div>
             </div>

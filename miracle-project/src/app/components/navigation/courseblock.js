@@ -14,10 +14,10 @@ const CourseBlock = ({ course, index }) => {
   const date = course.date;
   const time = course.time;
   const location = course.location;
-  const courseId = course.id;
+  const courseId = "L2pHaymJcwD7SGuD4Pdv";
 
   return (
-    <Link href={`/courses/${courseId}`} className="block">
+    <Link href={`/enrolledCourses/${courseId}?courseId=${courseId}`} className="block">
       <div
         className={`px-12 py-5 rounded-md text-black ${bgColor} mb-4 last:mb-0 shadow-md motion-safe:hover:animate-bounce duration-100`}
       >

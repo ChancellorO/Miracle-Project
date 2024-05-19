@@ -1,4 +1,4 @@
-import { db } from "../../../server/firebase";
+import { db } from "./firebase";
 import { getDoc, doc, updateDoc, arrayUnion, addDoc } from "firebase/firestore/lite";
 
 const handleAnnouncement = async () => {
@@ -32,6 +32,11 @@ const getCourses = async () => {
     });
 }
 
+const getCourseInfo = async(courseID) => {
+    const CourseRef = await getDoc(doc(db, 'course', courseID));
+    return CourseRef.data();
+}
+
 const getPosts = async () => {
     const arrPostsIDS = [];
     const arrPosts = [];
@@ -56,4 +61,9 @@ const handleContent = async () => {
     });
 }
 
-export default {handleAnnouncement, getAnnouncements, getCourses, getPosts, handleContent};
+export {handleAnnouncement, 
+    getAnnouncements, 
+    getCourses, 
+    getPosts, 
+    getCourseInfo,
+    handleContent};
